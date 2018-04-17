@@ -78,8 +78,8 @@ class UNQfy {
     let artist = this.getArtistByName(artistName);
     let album = new albumFile.Album(params.name, params.year, artist);
     this.albumsForName[album.name] = album;
-    let albums = this.albumsForArtist[artist];
-    if(albums ==null || albums == undefined){
+    let albums = this.albumsForArtist[artist.name];
+    if(albums === null || albums === undefined){
       this.albumsForArtist[artist.name] = [];
     }
     this.albumsForArtist[artist.name].push(album);
