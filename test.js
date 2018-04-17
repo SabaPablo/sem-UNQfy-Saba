@@ -94,6 +94,7 @@ describe('Add, remove and filter data', () => {
 
     const matchingTracks = unqfy.getTracksMatchingArtist(artist);
 
+    console.log(matchingTracks);
     assert.isArray(matchingTracks);
     assert.lengthOf(matchingTracks, 3);
     assert.isTrue(matchingTracks.includes(t1));

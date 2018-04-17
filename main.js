@@ -20,6 +20,7 @@ function saveUNQfy(unqfy, filename) {
 }
 
 function main() {
+  let args = process.argv.slice(2);
   console.log('arguments: ');
   process.argv.forEach(argument => console.log(argument));
 }
