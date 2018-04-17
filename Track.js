@@ -12,6 +12,9 @@ class Track {
             });
         }
     }
+    getGenres(){
+        return this.genres;
+    }
 
 }
 

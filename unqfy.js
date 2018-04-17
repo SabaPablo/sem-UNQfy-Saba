@@ -3,6 +3,7 @@ const picklejs = require('picklejs');
 const artistFile = require('./Artist.js');
 const albumFile = require('./Album.js');
 const trackFile = require('./Track.js');
+const playListFile = require('./PlayList.js');
 
 class UNQfy {
 
@@ -11,6 +12,8 @@ class UNQfy {
     this.albumsForName = {};
     this.albumsForArtist = {};
     this.trackForName = {};
+    this.playListByName = {};
+    this.tracksBygenres = {};
   }
 
   getTracksMatchingGenres(genres) {
@@ -62,7 +65,7 @@ class UNQfy {
   */
   addArtist(params) {
     // El objeto artista creado debe soportar (al menos) las propiedades name (string) y country (string)
-    let artist = new artistFile.Artist(params.name,params.country);
+    let artist = new artistFile.Artist(params);
     this.artists[artist.name] = artist;
   
     
@@ -76,7 +79,8 @@ class UNQfy {
   addAlbum(artistName, params) {
     // El objeto album creado debe tener (al menos) las propiedades name (string) y year
     let artist = this.getArtistByName(artistName);
-    let album = new albumFile.Album(params.name, params.year, artist);
+    params['artist'] = artist;
+    let album = new albumFile.Album(params);
     this.albumsForName[album.name] = album;
     let albums = this.albumsForArtist[artist.name];
     if(albums === null || albums === undefined){
@@ -101,6 +105,12 @@ class UNQfy {
     params["album"] = album;
     let track = new trackFile.Track(params);
     this.trackForName[params.name] = track;
+    params.genres.forEach(gen => {
+      if (!(gen in this.tracksBygenres)) {
+        this.tracksBygenres[gen] = [];
+      }
+      this.tracksBygenres[gen].push(track);
+    });
 
 
 
@@ -120,7 +130,7 @@ class UNQfy {
   }
 
   getPlaylistByName(name) {
-
+    return this.playListByName[name];
   }
 
   addPlaylist(name, genresToInclude, maxDuration) {
@@ -129,7 +139,13 @@ class UNQfy {
       * un metodo duration() que retorne la duración de la playlist.
       * un metodo hasTrack(aTrack) que retorna true si aTrack se encuentra en la playlist
     */
-
+    let params = {};
+    params['name']=name;
+    params['genres'] = genresToInclude;
+    params['duration'] =maxDuration;
+    //TODO FIXME Que diferencia hay entre const y let??
+    const playList = new playListFile.PlayList(params);
+    this.playListByName[name] = playList;
   }
 
   save(filename = 'unqfy.json') {

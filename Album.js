@@ -1,10 +1,10 @@
 class Album {
 
-    constructor(name, year, artist) {
+    constructor(params) {
 
-        this.name = name;
-        this.year = year;
-        this.artist = artist;
+        this.name = params['name'];
+        this.year = params['year'];
+        this.artist = params['artist'];
     }
 
 }

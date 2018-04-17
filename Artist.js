@@ -1,9 +1,9 @@
 class Artist {
 
-    constructor(name, country){
+    constructor(params){
 
-        this.name = name;
-        this.country = country;
+        this.name = params['name'];
+        this.country = params['country'];
     }
 
 }
