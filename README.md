@@ -51,6 +51,11 @@ npm test
 - addArtist
 - addTrack
 
+## UML
+
+* [UML](https://drive.google.com/file/d/185mpnGDflgvlAK5hwWwU4EDlZkJayPl9/view?usp=sharing)
+
+
 ## Hecho con
 
 * [Node](https://nodejs.org/es/) - Entorno de ejecución
