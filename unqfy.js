@@ -28,7 +28,7 @@ class UNQfy {
         }
       });
     }
-    let res = [];
+    const res = [];
     for (const key in dict) {
       res.push(dict[key]);
     }
@@ -37,7 +37,7 @@ class UNQfy {
 
   getTracksMatchingArtist(artistName) {
 
-    let albums = this.albumsForArtist[artistName.name];
+    const albums = this.albumsForArtist[artistName.name];
 
     const dict = {};
     for (const key in this.trackForName) {
@@ -49,7 +49,7 @@ class UNQfy {
         }
       });
     }
-    let res = [];
+    const res = [];
     for (const key in dict) {
       res.push(dict[key]);
     }

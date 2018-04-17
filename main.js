@@ -26,36 +26,44 @@ function addArtist(unqfy, params) {
 function addTrack(unqfy, params) {
   unqfy.addTrack(params);
 }
+function addAlbum(unqfy, params) {
+  unqfy.addAlbum(params);
+}
+function addPlaylist(unqfy, params) {
+  unqfy.addPlaylist(params);
+}
+
+
 function getFunctions(){
-
-
-const res = { 
-  "addArtist": addArtist,
-  "addTrack": addTrack };
+  //TODO FIXME agregar funciones que faltan
+  const res = { 
+    addArtist: addArtist,
+    addTrack : addTrack,
+    addAlbum : addAlbum,
+    addPlaylist : addPlaylist
+  };
+  return res;
 }
 
 
 function main() {
 
 
-  let unqfy = getUNQfy("unqfydb");
+  const unqfy = getUNQfy();
   
-  let fuctionBox = getFunctions();
+  const fuctionBox = getFunctions();
 
-  let args = process.argv.slice(2);
+  const args = process.argv.slice(2);
   console.log('arguments: ');
   args.forEach(argument => console.log(argument));
-  let func = args[0];
+  const func = args[0];
   let params = {};
   for (let index = 1; index < args.length; index+ 2) {
     const key = args[index];
-    const value = args[index];
+    const value = args[index+1];
     params[key] = value;
   }
-  let object = func(params);
-  console.log(object);
+  fuctionBox[func](unqfy,params);
+  saveUNQfy(unqfy);
 }
-
 main();
-
-
