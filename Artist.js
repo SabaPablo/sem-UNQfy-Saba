@@ -19,6 +19,14 @@ class Artist {
     });
   }
 
+  getTracks(){
+    let res = [];
+    this.getAlbums().forEach(album => {
+      res = res.concat(album.getTracksByAlbum()); 
+    });
+    return res;
+  }
+
   getAlbums(){
     let values = [];
     Object.keys(this.albumsForName).forEach(key => {

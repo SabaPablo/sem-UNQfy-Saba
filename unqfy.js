@@ -36,24 +36,7 @@ class UNQfy {
   }
 
   getTracksMatchingArtist(artistName) {
-
-    const albums = this.albumsForArtist[artistName.name];
-
-    const dict = {};
-    for (const key in this.trackForName) {
-      const track = this.trackForName[key];
-      albums.forEach(element => {
-
-        if (track.album.name === element.name){
-          dict[track.name] = track;
-        }
-      });
-    }
-    const res = [];
-    for (const key in dict) {
-      res.push(dict[key]);
-    }
-    return res;
+    return artistName.getTracks();
 
 
   }

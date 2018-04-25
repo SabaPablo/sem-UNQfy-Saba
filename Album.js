@@ -11,14 +11,19 @@ class Album {
     this.tracksBygenres = {};
   }
 
-  getTracks(){
-    return this.trackForName.getValues();
+  getTracksByAlbum(){
+    let res = [];
+    Object.keys(this.trackForName).forEach(key => {
+      let track = this.trackForName[key];
+      res.push(track);
+    });
+    return res;
   }
-
 
   getTrackBygeRes(genres, map){
     genres.forEach(element => {
       this.tracksBygenres[element].forEach(track => {
+
         map[track.name] = track;
       });
     });
