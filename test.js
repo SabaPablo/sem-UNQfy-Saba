@@ -1,5 +1,6 @@
 /* eslint-env node, mocha */
 
+
 const assert = require('chai').assert;
 const libunqfy = require('./unqfy');
 
@@ -38,7 +39,6 @@ describe('Add, remove and filter data', () => {
   it('should add an album to an artist', () => {
     createAndAddArtist(unqfy, 'Guns n\' Roses', 'USA');
     const album = createAndAddAlbum(unqfy, 'Guns n\' Roses', 'Appetite for Destruction', 1987);
-
     assert.equal(album.name, 'Appetite for Destruction');
     assert.equal(album.year, 1987);
   });

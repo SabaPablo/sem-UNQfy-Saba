@@ -1,20 +1,19 @@
 class Track {
 
-    constructor(params) {
+  constructor(params) {
 
-        this.name = params.name;
-        this.album = params.album;
-        this.duration = params.duration;
-        this.genres = [];
-        if(!params.genres.isNull && 0 < params.genres.length){
-            params.genres.forEach(element => {
-                this.genres.push(element);
-            });
-        }
-    }
-    getGenres(){
-        return this.genres;
-    }
+    this.name = params.name;
+    this.duration = params.duration;
+    this.genres = params.genres;
+  }
+  getGenres(){
+    return this.genres;
+  }
+
+  getName(){
+    return this.name;
+  }
+
 
 }
 

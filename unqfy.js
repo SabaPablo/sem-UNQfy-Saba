@@ -1,37 +1,37 @@
 
 const picklejs = require('picklejs');
 const artistFile = require('./Artist.js');
-const albumFile = require('./Album.js');
-const trackFile = require('./Track.js');
+
+
 const playListFile = require('./PlayList.js');
 
 class UNQfy {
 
   constructor(){
     this.artists = {};
-    this.albumsForName = {};
-    this.albumsForArtist = {};
-    this.trackForName = {};
     this.playListByName = {};
-    this.tracksBygenres = {};
+
   }
 
   getTracksMatchingGenres(genres) {
+    let map = {};
     // Debe retornar todos los tracks que contengan alguno de los generos en el parametro genres
-    const dict = {};
-    for (const key in this.trackForName) {
-      const track = this.trackForName[key];
-
-      genres.forEach(element => {
-        if (track.genres.indexOf(element) > -1){
-          dict[track.name] = track;
-        }
+    this.getAllArtists().forEach(artist => {
+      artist.getTrackArtistByGenRes(genres, map);
       });
-    }
-    const res = [];
-    for (const key in dict) {
-      res.push(dict[key]);
-    }
+    let res = [];
+    Object.keys(map).forEach(key => {
+      res.push(map[key]);
+    });
+
+    return res;
+  }
+
+  getAllArtists(){
+    let res = [];
+    Object.keys(this.artists).forEach(key => {
+      res.push(this.artists[key]);
+    });
     return res;
   }
 
@@ -65,10 +65,8 @@ class UNQfy {
   */
   addArtist(params) {
     // El objeto artista creado debe soportar (al menos) las propiedades name (string) y country (string)
-    let artist = new artistFile.Artist(params);
+    const artist = new artistFile.Artist(params);
     this.artists[artist.name] = artist;
-  
-    
   }
 
 
@@ -78,15 +76,8 @@ class UNQfy {
   */
   addAlbum(artistName, params) {
     // El objeto album creado debe tener (al menos) las propiedades name (string) y year
-    let artist = this.getArtistByName(artistName);
-    params['artist'] = artist;
-    let album = new albumFile.Album(params);
-    this.albumsForName[album.name] = album;
-    let albums = this.albumsForArtist[artist.name];
-    if(albums === null || albums === undefined){
-      this.albumsForArtist[artist.name] = [];
-    }
-    this.albumsForArtist[artist.name].push(album);
+    const artist = this.getArtistByName(artistName);
+    artist.setAlbum(params);
   }
 
 
@@ -101,19 +92,8 @@ class UNQfy {
          duration (number),
          genres (lista de strings)
     */
-    let album = this.getAlbumByName(albumName);
-    params["album"] = album;
-    let track = new trackFile.Track(params);
-    this.trackForName[params.name] = track;
-    params.genres.forEach(gen => {
-      if (!(gen in this.tracksBygenres)) {
-        this.tracksBygenres[gen] = [];
-      }
-      this.tracksBygenres[gen].push(track);
-    });
-
-
-
+    const album = this.getAlbumByName(albumName);
+    album.setTrack(params);
   }
 
   getArtistByName(name) {
@@ -122,11 +102,25 @@ class UNQfy {
   }
 
   getAlbumByName(name) {
-    return this.albumsForName[name];
+    let theAlbum = null;
+    Object.values(this.artists).forEach(artist => {
+      
+      if (artist.containAlbumByName(name))
+        theAlbum = artist.getAlbumByName(name);
+
+    });
+    return theAlbum;
   }
 
   getTrackByName(name) {
-    return this.trackForName[name];
+    let theTrack = null;
+    Object.values(this.artists).forEach(artist => {
+      let track = artist.getTrackByName(name);
+      if(track != null){
+        theTrack = track;
+      }
+    });
+    return theTrack;
   }
 
   getPlaylistByName(name) {
