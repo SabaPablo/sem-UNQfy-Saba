@@ -1,21 +1,44 @@
 class PlayList {
 
-    constructor(params) {
-        this.name = params['name'];
-        this.genres = params['genres'];
-        this.durationparam = params['duration'];
+  constructor(params) {
+    this.name = params['name'];
+    this.genres = params['genres'];
+    this.durationparam = params['duration'];
+    this.unquify = params['system'];
+    this.tracksPlayList = [];
 
-    }
+  }
      
-    duration() {
-        return this.durationparam;
-    }
+  searchTracks(){
+    let tracks = this.unquify.getTracksMatchingGenres(this.genres);
 
-    hasTrack(aTrack){
-        let resByTrack =  aTrack.getGenres();
-        return  this.genres.some(r => resByTrack.indexOf(r) >= 0);
+    let aux = 0;
+    tracks.forEach(track => {
 
-    }
+
+      if ((aux + track.getDuration()) <= this.duration()){
+
+        this.tracksPlayList.push(track);
+        aux = aux + track.getDuration();
+
+      }            
+    });
+}
+
+
+  duration() {
+    return this.durationparam;
+  }
+
+  hasTrack(aTrack){
+    let res = false;
+    this.tracksPlayList.forEach(element => {
+      if(element.name == aTrack.name){
+        res = true;
+      }
+    });
+    return res;
+  }
 }
 
 module.exports = { PlayList: PlayList };

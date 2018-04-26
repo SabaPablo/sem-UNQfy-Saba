@@ -120,9 +120,12 @@ class UNQfy {
     params['name']=name;
     params['genres'] = genresToInclude;
     params['duration'] =maxDuration;
+    params['system'] = this;
     //TODO FIXME Que diferencia hay entre const y let??
     const playList = new playListFile.PlayList(params);
+    playList.searchTracks();
     this.playListByName[name] = playList;
+
   }
 
   save(filename = 'unqfy.json') {

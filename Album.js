@@ -22,10 +22,11 @@ class Album {
 
   getTrackBygeRes(genres, map){
     genres.forEach(element => {
-      this.tracksBygenres[element].forEach(track => {
-
-        map[track.name] = track;
-      });
+      if (element in this.tracksBygenres){
+        this.tracksBygenres[element].forEach(track => {
+          map[track.name] = track;
+        });
+      }
     });
 }
     

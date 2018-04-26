@@ -14,6 +14,9 @@ class Track {
     return this.name;
   }
 
+  getDuration(){
+    return this.duration;
+  }
 
 }
 
