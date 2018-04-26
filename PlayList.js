@@ -1,16 +1,16 @@
 class PlayList {
 
   constructor(params) {
-    this.name = params['name'];
-    this.genres = params['genres'];
-    this.durationparam = params['duration'];
-    this.unquify = params['system'];
+    this.name = params.name;
+    this.genres = params.genres;
+    this.durationparam = params.duration;
+    this.unquify = params.system;
     this.tracksPlayList = [];
 
   }
      
   searchTracks(){
-    let tracks = this.unquify.getTracksMatchingGenres(this.genres);
+    const tracks = this.unquify.getTracksMatchingGenres(this.genres);
 
     let aux = 0;
     tracks.forEach(track => {
@@ -23,7 +23,7 @@ class PlayList {
 
       }            
     });
-}
+  }
 
 
   duration() {
@@ -33,7 +33,7 @@ class PlayList {
   hasTrack(aTrack){
     let res = false;
     this.tracksPlayList.forEach(element => {
-      if(element.name == aTrack.name){
+      if(element.name === aTrack.name){
         res = true;
       }
     });

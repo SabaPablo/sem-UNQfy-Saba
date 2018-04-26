@@ -23,6 +23,13 @@ function addArtist(unqfy, params) {
   unqfy.addArtist(params);
 }
 
+
+function getPlaylistByName(unqfy, name) {
+  unqfy.getPlaylistByName(name);
+}
+
+
+
 function addTrack(unqfy, params) {
   unqfy.addTrack(params);
 }
@@ -40,11 +47,12 @@ function getFunctions(){
     addArtist: addArtist,
     addTrack : addTrack,
     addAlbum : addAlbum,
-    addPlaylist : addPlaylist
+    addPlaylist : addPlaylist,
+    getPlaylistByName: getPlaylistByName
+
   };
   return res;
 }
-
 
 function main() {
 
