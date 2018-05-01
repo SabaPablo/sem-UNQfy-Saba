@@ -14,12 +14,12 @@ class UNQfy {
   }
 
   getTracksMatchingGenres(genres) {
-    let map = {};
+    const map = {};
     // Debe retornar todos los tracks que contengan alguno de los generos en el parametro genres
     this.getAllArtists().forEach(artist => {
       artist.getTrackArtistByGenRes(genres, map);
-      });
-    let res = [];
+    });
+    const res = [];
     Object.keys(map).forEach(key => {
       res.push(map[key]);
     });
@@ -28,7 +28,7 @@ class UNQfy {
   }
 
   getAllArtists(){
-    let res = [];
+    const res = [];
     Object.keys(this.artists).forEach(key => {
       res.push(this.artists[key]);
     });
@@ -98,8 +98,8 @@ class UNQfy {
   getTrackByName(name) {
     let theTrack = null;
     Object.values(this.artists).forEach(artist => {
-      let track = artist.getTrackByName(name);
-      if(track != null){
+      const track = artist.getTrackByName(name);
+      if(track !== null){
         theTrack = track;
       }
     });
@@ -116,11 +116,11 @@ class UNQfy {
       * un metodo duration() que retorne la duración de la playlist.
       * un metodo hasTrack(aTrack) que retorna true si aTrack se encuentra en la playlist
     */
-    let params = {};
-    params['name']=name;
-    params['genres'] = genresToInclude;
-    params['duration'] =maxDuration;
-    params['system'] = this;
+    const params = {};
+    params.name=name;
+    params.genres = genresToInclude;
+    params.duration =maxDuration;
+    params.system = this;
     //TODO FIXME Que diferencia hay entre const y let??
     const playList = new playListFile.PlayList(params);
     playList.searchTracks();

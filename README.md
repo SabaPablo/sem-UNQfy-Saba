@@ -48,8 +48,23 @@ npm test
 
 ## Funciones permitidas
 
+--CONSTRUCTORES
 - addArtist
 - addTrack
+- addAlbum
+- addPlaylist
+
+--GETTERS
+-getAlbumByName
+-getArtistByName
+-getTracksByArtistName
+-getPlaylistByName
+
+## Formato uso funciones
+
+```
+node  main.js   addArtist  name "Peter Tosh"
+```
 
 ## UML
 

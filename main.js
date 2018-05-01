@@ -15,29 +15,46 @@ function getUNQfy(filename) {
 
 // Guarda el estado de UNQfy en filename
 function saveUNQfy(unqfy, filename) {
-  console.log();
+  console.log(filename);
   unqfy.save(filename);
 }
 
-function addArtist(unqfy, params) {
-  unqfy.addArtist(params);
-}
 
+//GETTINGS
 
 function getPlaylistByName(unqfy, name) {
-  unqfy.getPlaylistByName(name);
+  return unqfy.getPlaylistByName(name);
 }
 
+function getArtistByName(unqfy, name) {
+  return unqfy.getArtistByName(name);
+}
 
+function getTracksByArtistName(unqfy, name){
+  return unqfy.getTracksMatchingArtist(name);
+}
+
+function getAlbumByName(unqfy, name){
+  return getAlbumByName(name);
+}
+
+//CONSTRUCTORS
+function addArtist(unqfy, params) {
+  unqfy.addArtist(params);
+  console.log("create Artist");
+}
 
 function addTrack(unqfy, params) {
   unqfy.addTrack(params);
+  console.log("create Track");
 }
 function addAlbum(unqfy, params) {
   unqfy.addAlbum(params);
+  console.log("create Album");
 }
 function addPlaylist(unqfy, params) {
   unqfy.addPlaylist(params);
+  console.log("create PlayList");
 }
 
 
@@ -48,6 +65,10 @@ function getFunctions(){
     addTrack : addTrack,
     addAlbum : addAlbum,
     addPlaylist : addPlaylist,
+    
+    getAlbumByName: getAlbumByName,
+    getArtistByName: getArtistByName,
+    getTracksByArtistName: getTracksByArtistName,
     getPlaylistByName: getPlaylistByName
 
   };
@@ -63,10 +84,10 @@ function main() {
 
   const args = process.argv.slice(2);
   console.log('arguments: ');
-  args.forEach(argument => console.log(argument));
+  //args.forEach(argument => console.log(argument));
   const func = args[0];
-  let params = {};
-  for (let index = 1; index < args.length; index+ 2) {
+  const params = {};
+  for (let index = 1; index < args.length; index = index+ 2 ) {
     const key = args[index];
     const value = args[index+1];
     params[key] = value;
