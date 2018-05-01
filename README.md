@@ -55,10 +55,10 @@ npm test
 - addPlaylist
 
 --GETTERS
--getAlbumByName
--getArtistByName
--getTracksByArtistName
--getPlaylistByName
+- getAlbumByName
+- getArtistByName
+- getTracksByArtistName
+- getPlaylistByName
 
 ## Formato uso funciones
 
