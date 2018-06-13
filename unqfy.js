@@ -1,15 +1,19 @@
 
 const picklejs = require('picklejs');
 const artistFile = require('./Artist.js');
-
+const rp = require('request-promise');
 
 const playListFile = require('./PlayList.js');
+
+const ACCESS_TOCKEN = 'BQDMYdc--V6zOonXmseamhTqAyVJrKQv8XkrADNW3jlmvRsd973L-LdlOYnEBrY8SxL2095wPVrPNgiPrSfXHdKERmSIGRGXFgGAjnjkSX19C_fdJOvqDz7UbiYFX8Uy54vzWRXwEscte8iyopsr53yJYnSkGr6GbTX4lGTCo4MuV0xyCw';
+
 
 class UNQfy {
 
   constructor(){
     this.artists = {};
     this.playListByName = {};
+    this.artistsById = {};
 
   }
 
@@ -35,6 +39,16 @@ class UNQfy {
     return res;
   }
 
+  getArtistsById(id) {
+    return this.artistsById[id];
+  }
+
+  deleteArtistsById(id){
+    const artist = this.getArtistsById(id);
+    this.artists.delete(artist.name);
+    this.artistsById.delete(id);
+  }
+
   getTracksMatchingArtist(artistName) {
     return artistName.getTracks();
 
@@ -48,8 +62,12 @@ class UNQfy {
   */
   addArtist(params) {
     // El objeto artista creado debe soportar (al menos) las propiedades name (string) y country (string)
+    const id = this.getAllArtists().length;
+    params.id = id;
     const artist = new artistFile.Artist(params);
     this.artists[artist.name] = artist;
+    this.artistsById[artist.id] = artist;
+    return artist;
   }
 
 
@@ -139,10 +157,64 @@ class UNQfy {
     fs.registerClasses(...classes);
     return fs.load(filename);
   }
+
+  populateAlbumsForArtist(param) {
+
+
+    const options = {
+      url: 'https://api.spotify.com/v1/search?q='+ param + '&type=artist',
+      headers: { Authorization: 'Bearer ' + ACCESS_TOCKEN},
+      json: true
+    };
+    rp.get(options).then((response) => this.createArtistByResponse(response));
+  }
+
+  createArtistByResponse(response){
+    let paramByNewArtist = {};
+    let artists = response.artists.items;
+    let artist = artists[0];
+    paramByNewArtist.name = artist.name;
+    paramByNewArtist.country = 'none';
+
+    console.log("creando artista: " + paramByNewArtist.name);
+    console.log("Id artista: " + artist.id);
+    this.addArtist(paramByNewArtist);
+
+
+    const options = {
+      url: 'https://api.spotify.com/v1/artists/'+ artist.id +'/albums',
+      headers: { Authorization: 'Bearer ' + ACCESS_TOCKEN },
+      json: true
+    };
+    rp.get(options).then((response) => this.createAlbumsByResponse(artist.name, response));
+    
+
+
+  }
+
+  createAlbumsByResponse(artistName, response){
+    let albums = response.items;
+    albums.forEach(albumResponse => {
+      /* Debo agregarle estos parametros:
+    params.name (string)
+    params.year (number)
+    */
+      let params = {};
+      params.name = albumResponse.name;
+      const date = albumResponse.release_date;
+      console.log("creando album:" + params.name);
+      this.addAlbum(artistName, params);
+
+    });
+  }
+
+
+  
 }
+
+
 
 // TODO: exportar todas las clases que necesiten ser utilizadas desde un modulo cliente
 module.exports = {
   UNQfy,
 };
-

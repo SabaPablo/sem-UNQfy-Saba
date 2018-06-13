@@ -46,7 +46,7 @@ function addArtist(unqfy, params) {
 
 function addTrack(unqfy, params) {
   unqfy.addTrack(params);
-  console.log("create Track");
+  console.log("create Track"); 
 }
 function addAlbum(unqfy, params) {
   unqfy.addAlbum(params);
@@ -57,6 +57,10 @@ function addPlaylist(unqfy, params) {
   console.log("create PlayList");
 }
 
+function populateAlbumsForArtist(unqfy, params) {
+  unqfy.populateAlbumsForArtist(params);
+  console.log("create PlayList");
+}
 
 function getFunctions(){
   //TODO FIXME agregar funciones que faltan
@@ -69,7 +73,8 @@ function getFunctions(){
     getAlbumByName: getAlbumByName,
     getArtistByName: getArtistByName,
     getTracksByArtistName: getTracksByArtistName,
-    getPlaylistByName: getPlaylistByName
+    getPlaylistByName: getPlaylistByName,
+    populateAlbumsForArtist: populateAlbumsForArtist
 
   };
   return res;
@@ -78,10 +83,13 @@ function getFunctions(){
 function main() {
 
 
+
   const unqfy = getUNQfy();
   
-  const fuctionBox = getFunctions();
+  unqfy.populateAlbumsForArtist('charly garcia');
 
+  const fuctionBox = getFunctions();
+  /*
   const args = process.argv.slice(2);
   console.log('arguments: ');
   //args.forEach(argument => console.log(argument));
@@ -93,6 +101,7 @@ function main() {
     params[key] = value;
   }
   fuctionBox[func](unqfy,params);
+  */
   saveUNQfy(unqfy);
 }
 main();

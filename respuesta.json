@@ -1,0 +1,168 @@
+{
+    "artists": {
+        "href": "https://api.spotify.com/v1/search?query=Charly+garcia&type=artist&market=AR&offset=0&limit=20",
+        "items": [
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/3jO7X5KupvwmWTHGtHgcgo"
+                },
+                "followers": {
+                    "href": null,
+                    "total": 386445
+                },
+                "genres": [
+                    "argentine rock",
+                    "latin alternative",
+                    "latin rock",
+                    "nueva cancion",
+                    "rock en espanol"
+                ],
+                "href": "https://api.spotify.com/v1/artists/3jO7X5KupvwmWTHGtHgcgo",
+                "id": "3jO7X5KupvwmWTHGtHgcgo",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/472074804f817e6d62032bdd1a48a910dee001b8",
+                        "width": 640
+                    },
+                    {
+                        "height": 320,
+                        "url": "https://i.scdn.co/image/79354682c94dffb2a5ff10c047c3a9840c330bd0",
+                        "width": 320
+                    },
+                    {
+                        "height": 160,
+                        "url": "https://i.scdn.co/image/24a639377b5f9cee6bc8491e77657bc9d0aa96bd",
+                        "width": 160
+                    }
+                ],
+                "name": "Charly García",
+                "popularity": 64,
+                "type": "artist",
+                "uri": "spotify:artist:3jO7X5KupvwmWTHGtHgcgo"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/7rlhjNdnG32SqmBQjRs4te"
+                },
+                "followers": {
+                    "href": null,
+                    "total": 54
+                },
+                "genres": [],
+                "href": "https://api.spotify.com/v1/artists/7rlhjNdnG32SqmBQjRs4te",
+                "id": "7rlhjNdnG32SqmBQjRs4te",
+                "images": [],
+                "name": "Charly Garcia",
+                "popularity": 0,
+                "type": "artist",
+                "uri": "spotify:artist:7rlhjNdnG32SqmBQjRs4te"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/5Xj7v2mONruvu5u868z40d"
+                },
+                "followers": {
+                    "href": null,
+                    "total": 90
+                },
+                "genres": [],
+                "href": "https://api.spotify.com/v1/artists/5Xj7v2mONruvu5u868z40d",
+                "id": "5Xj7v2mONruvu5u868z40d",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/d04ff4f9b6c27d7e222cc5786d6d4761116d3e6b",
+                        "width": 640
+                    },
+                    {
+                        "height": 300,
+                        "url": "https://i.scdn.co/image/e6817d5c478a31cf3332f1140bd5090489d2b99e",
+                        "width": 300
+                    },
+                    {
+                        "height": 64,
+                        "url": "https://i.scdn.co/image/55fd6b7c3e67485892cb10b49cbdf4c99bd71ad7",
+                        "width": 64
+                    }
+                ],
+                "name": "Charly García",
+                "popularity": 0,
+                "type": "artist",
+                "uri": "spotify:artist:5Xj7v2mONruvu5u868z40d"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/3djnNVOShXVr7sBszSIzCN"
+                },
+                "followers": {
+                    "href": null,
+                    "total": 47
+                },
+                "genres": [],
+                "href": "https://api.spotify.com/v1/artists/3djnNVOShXVr7sBszSIzCN",
+                "id": "3djnNVOShXVr7sBszSIzCN",
+                "images": [],
+                "name": "Alberto Rojo, Charly Garcia",
+                "popularity": 1,
+                "type": "artist",
+                "uri": "spotify:artist:3djnNVOShXVr7sBszSIzCN"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/7rgM7iCCbSdeWjU2xuZmRS"
+                },
+                "followers": {
+                    "href": null,
+                    "total": 46
+                },
+                "genres": [],
+                "href": "https://api.spotify.com/v1/artists/7rgM7iCCbSdeWjU2xuZmRS",
+                "id": "7rgM7iCCbSdeWjU2xuZmRS",
+                "images": [],
+                "name": "Charly Garcia Pena",
+                "popularity": 0,
+                "type": "artist",
+                "uri": "spotify:artist:7rgM7iCCbSdeWjU2xuZmRS"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/2s4nQUng8JcxOQohHtxOti"
+                },
+                "followers": {
+                    "href": null,
+                    "total": 2512
+                },
+                "genres": [],
+                "href": "https://api.spotify.com/v1/artists/2s4nQUng8JcxOQohHtxOti",
+                "id": "2s4nQUng8JcxOQohHtxOti",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/7c7f06493faa13720af17b0927a20d335fa8c5e9",
+                        "width": 640
+                    },
+                    {
+                        "height": 300,
+                        "url": "https://i.scdn.co/image/4bf4a3ed392acba7f8775740695b9660f7ab5799",
+                        "width": 300
+                    },
+                    {
+                        "height": 64,
+                        "url": "https://i.scdn.co/image/e95471f97dbb5709e61e5d732503761b2f8db2bf",
+                        "width": 64
+                    }
+                ],
+                "name": "Charly García, Sui Generis, La Maquina De Hacer Pajaros, Seru Giran, Pedro Aznar",
+                "popularity": 0,
+                "type": "artist",
+                "uri": "spotify:artist:2s4nQUng8JcxOQohHtxOti"
+            }
+        ],
+        "limit": 20,
+        "next": null,
+        "offset": 0,
+        "previous": null,
+        "total": 6
+    }
+}

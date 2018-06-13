@@ -1,0 +1,350 @@
+{
+    "href": "https://api.spotify.com/v1/artists/5Xj7v2mONruvu5u868z40d/albums?offset=0&limit=20&include_groups=album,single,compilation,appears_on",
+    "items": [
+        {
+            "album_group": "single",
+            "album_type": "single",
+            "artists": [
+                {
+                    "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/5Xj7v2mONruvu5u868z40d"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/5Xj7v2mONruvu5u868z40d",
+                    "id": "5Xj7v2mONruvu5u868z40d",
+                    "name": "Charly García",
+                    "type": "artist",
+                    "uri": "spotify:artist:5Xj7v2mONruvu5u868z40d"
+                }
+            ],
+            "available_markets": [
+                "AD",
+                "AR",
+                "AT",
+                "AU",
+                "BE",
+                "BG",
+                "BO",
+                "BR",
+                "CA",
+                "CH",
+                "CL",
+                "CO",
+                "CR",
+                "CY",
+                "CZ",
+                "DE",
+                "DK",
+                "DO",
+                "EC",
+                "EE",
+                "ES",
+                "FI",
+                "FR",
+                "GB",
+                "GR",
+                "GT",
+                "HK",
+                "HN",
+                "HU",
+                "ID",
+                "IE",
+                "IL",
+                "IS",
+                "IT",
+                "JP",
+                "LI",
+                "LT",
+                "LU",
+                "LV",
+                "MC",
+                "MT",
+                "MX",
+                "MY",
+                "NI",
+                "NL",
+                "NO",
+                "NZ",
+                "PA",
+                "PE",
+                "PH",
+                "PL",
+                "PT",
+                "PY",
+                "RO",
+                "SE",
+                "SG",
+                "SK",
+                "SV",
+                "TH",
+                "TR",
+                "TW",
+                "US",
+                "UY",
+                "VN",
+                "ZA"
+            ],
+            "external_urls": {
+                "spotify": "https://open.spotify.com/album/5zBZsTeh88tcz5kIj4WrwG"
+            },
+            "href": "https://api.spotify.com/v1/albums/5zBZsTeh88tcz5kIj4WrwG",
+            "id": "5zBZsTeh88tcz5kIj4WrwG",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/783d573100918e9d64cfb6cf6c13667c757bd2ef",
+                    "width": 640
+                },
+                {
+                    "height": 300,
+                    "url": "https://i.scdn.co/image/ff1f18d2c231d3ebd6651a360db46b9bdd09b0e1",
+                    "width": 300
+                },
+                {
+                    "height": 64,
+                    "url": "https://i.scdn.co/image/93f0e9e8def7d11abecb7834b0c4f24d1bd647da",
+                    "width": 64
+                }
+            ],
+            "name": "Quisiera Regalarte",
+            "release_date": "2018-04-28",
+            "release_date_precision": "day",
+            "type": "album",
+            "uri": "spotify:album:5zBZsTeh88tcz5kIj4WrwG"
+        },
+        {
+            "album_group": "single",
+            "album_type": "single",
+            "artists": [
+                {
+                    "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/5Xj7v2mONruvu5u868z40d"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/5Xj7v2mONruvu5u868z40d",
+                    "id": "5Xj7v2mONruvu5u868z40d",
+                    "name": "Charly García",
+                    "type": "artist",
+                    "uri": "spotify:artist:5Xj7v2mONruvu5u868z40d"
+                }
+            ],
+            "available_markets": [
+                "AD",
+                "AR",
+                "AT",
+                "AU",
+                "BE",
+                "BG",
+                "BO",
+                "BR",
+                "CA",
+                "CH",
+                "CL",
+                "CO",
+                "CR",
+                "CY",
+                "CZ",
+                "DE",
+                "DK",
+                "DO",
+                "EC",
+                "EE",
+                "ES",
+                "FI",
+                "FR",
+                "GB",
+                "GR",
+                "GT",
+                "HK",
+                "HN",
+                "HU",
+                "ID",
+                "IE",
+                "IL",
+                "IS",
+                "IT",
+                "JP",
+                "LI",
+                "LT",
+                "LU",
+                "LV",
+                "MC",
+                "MT",
+                "MX",
+                "MY",
+                "NI",
+                "NL",
+                "NO",
+                "NZ",
+                "PA",
+                "PE",
+                "PH",
+                "PL",
+                "PT",
+                "PY",
+                "RO",
+                "SE",
+                "SG",
+                "SK",
+                "SV",
+                "TH",
+                "TR",
+                "TW",
+                "US",
+                "UY",
+                "VN",
+                "ZA"
+            ],
+            "external_urls": {
+                "spotify": "https://open.spotify.com/album/6SJzTtawP6ERyF0QTYZA5z"
+            },
+            "href": "https://api.spotify.com/v1/albums/6SJzTtawP6ERyF0QTYZA5z",
+            "id": "6SJzTtawP6ERyF0QTYZA5z",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/50899c9fecdc9a4f837577ca08dbddcb9386154f",
+                    "width": 640
+                },
+                {
+                    "height": 300,
+                    "url": "https://i.scdn.co/image/54b2d92cdc8913736e099c33f78392cc329fa4df",
+                    "width": 300
+                },
+                {
+                    "height": 64,
+                    "url": "https://i.scdn.co/image/dbc7aecc38ac6ae14cd1c1a8bc0e0492a24374db",
+                    "width": 64
+                }
+            ],
+            "name": "Adicta",
+            "release_date": "2018-03-08",
+            "release_date_precision": "day",
+            "type": "album",
+            "uri": "spotify:album:6SJzTtawP6ERyF0QTYZA5z"
+        },
+        {
+            "album_group": "single",
+            "album_type": "single",
+            "artists": [
+                {
+                    "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/5Xj7v2mONruvu5u868z40d"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/5Xj7v2mONruvu5u868z40d",
+                    "id": "5Xj7v2mONruvu5u868z40d",
+                    "name": "Charly García",
+                    "type": "artist",
+                    "uri": "spotify:artist:5Xj7v2mONruvu5u868z40d"
+                },
+                {
+                    "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/72HUhIsHBPL0dzf9OFFOVx"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/72HUhIsHBPL0dzf9OFFOVx",
+                    "id": "72HUhIsHBPL0dzf9OFFOVx",
+                    "name": "Fauricio Cruz",
+                    "type": "artist",
+                    "uri": "spotify:artist:72HUhIsHBPL0dzf9OFFOVx"
+                }
+            ],
+            "available_markets": [
+                "AD",
+                "AR",
+                "AT",
+                "AU",
+                "BE",
+                "BG",
+                "BO",
+                "BR",
+                "CA",
+                "CH",
+                "CL",
+                "CO",
+                "CR",
+                "CY",
+                "CZ",
+                "DE",
+                "DK",
+                "DO",
+                "EC",
+                "EE",
+                "ES",
+                "FI",
+                "FR",
+                "GB",
+                "GR",
+                "GT",
+                "HK",
+                "HN",
+                "HU",
+                "ID",
+                "IE",
+                "IL",
+                "IS",
+                "IT",
+                "JP",
+                "LI",
+                "LT",
+                "LU",
+                "LV",
+                "MC",
+                "MT",
+                "MX",
+                "MY",
+                "NI",
+                "NL",
+                "NO",
+                "NZ",
+                "PA",
+                "PE",
+                "PH",
+                "PL",
+                "PT",
+                "PY",
+                "RO",
+                "SE",
+                "SG",
+                "SK",
+                "SV",
+                "TH",
+                "TR",
+                "TW",
+                "US",
+                "UY",
+                "VN",
+                "ZA"
+            ],
+            "external_urls": {
+                "spotify": "https://open.spotify.com/album/375zhRulE9na04ouYYSnWj"
+            },
+            "href": "https://api.spotify.com/v1/albums/375zhRulE9na04ouYYSnWj",
+            "id": "375zhRulE9na04ouYYSnWj",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/d04ff4f9b6c27d7e222cc5786d6d4761116d3e6b",
+                    "width": 640
+                },
+                {
+                    "height": 300,
+                    "url": "https://i.scdn.co/image/e6817d5c478a31cf3332f1140bd5090489d2b99e",
+                    "width": 300
+                },
+                {
+                    "height": 64,
+                    "url": "https://i.scdn.co/image/55fd6b7c3e67485892cb10b49cbdf4c99bd71ad7",
+                    "width": 64
+                }
+            ],
+            "name": "Llega el Amor",
+            "release_date": "2017-10-12",
+            "release_date_precision": "day",
+            "type": "album",
+            "uri": "spotify:album:375zhRulE9na04ouYYSnWj"
+        }
+    ],
+    "limit": 20,
+    "next": null,
+    "offset": 0,
+    "previous": null,
+    "total": 3
+}

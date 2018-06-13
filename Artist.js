@@ -4,6 +4,7 @@ class Artist {
 
   constructor(params){
 
+    this.id = params['id'];
     this.name = params['name'];
     this.country = params['country'];
     this.albumsForName = {};
