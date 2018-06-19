@@ -11,16 +11,17 @@ const ACCESS_TOCKEN = 'BQDMYdc--V6zOonXmseamhTqAyVJrKQv8XkrADNW3jlmvRsd973L-LdlO
 class UNQfy {
 
   constructor(){
-    this.artists = {};
+    this.artists = [];
     this.playListByName = {};
-    this.artistsById = {};
+    this.ticketArtist = 0;
+    this.ticketAlbum = 0;
 
   }
 
   getTracksMatchingGenres(genres) {
     const map = {};
     // Debe retornar todos los tracks que contengan alguno de los generos en el parametro genres
-    this.getAllArtists().forEach(artist => {
+    this.artists.forEach(artist => {
       artist.getTrackArtistByGenRes(genres, map);
     });
     const res = [];
@@ -31,28 +32,23 @@ class UNQfy {
     return res;
   }
 
-  getAllArtists(){
-    const res = [];
-    Object.keys(this.artists).forEach(key => {
-      res.push(this.artists[key]);
+  getArtistsById(id) {
+    let res = null;
+    this.artists.forEach(anArtist => {
+      if (anArtist.id == id)
+        res = anArtist;
     });
     return res;
   }
 
-  getArtistsById(id) {
-    return this.artistsById[id];
-  }
-
   deleteArtistsById(id){
     const artist = this.getArtistsById(id);
-    this.artists.delete(artist.name);
-    this.artistsById.delete(id);
+    const index = this.artists.indexOf(artist);
+    this.artists.splice(index, 1);
   }
 
   getTracksMatchingArtist(artistName) {
     return artistName.getTracks();
-
-
   }
 
 
@@ -62,12 +58,12 @@ class UNQfy {
   */
   addArtist(params) {
     // El objeto artista creado debe soportar (al menos) las propiedades name (string) y country (string)
-    const id = this.getAllArtists().length;
+    const id = this.ticketArtist;
+    this.ticketArtist ++;
     params.id = id;
-    const artist = new artistFile.Artist(params);
-    this.artists[artist.name] = artist;
-    this.artistsById[artist.id] = artist;
-    return artist;
+    const newArtist = new artistFile.Artist(params);
+    this.artists.push(newArtist);
+    return this.getArtistsById(id);
   }
 
 
@@ -75,10 +71,13 @@ class UNQfy {
       params.name (string)
       params.year (number)
   */
-  addAlbum(artistName, params) {
+  addAlbum(params) {
+    params.id = this.ticketAlbum;
+    this.ticketAlbum++;
     // El objeto album creado debe tener (al menos) las propiedades name (string) y year
-    const artist = this.getArtistByName(artistName);
-    artist.setAlbum(params);
+    //debe existir el artista!!!!
+    const artist = this.getArtistsById(params.artistId);
+    return artist.createAlbum(params);
   }
 
 
@@ -104,7 +103,7 @@ class UNQfy {
 
   getAlbumByName(name) {
     let theAlbum = null;
-    Object.values(this.artists).forEach(artist => {
+    this.artists.forEach(artist => {
       
       if (artist.containAlbumByName(name))
         theAlbum = artist.getAlbumByName(name);
@@ -112,6 +111,17 @@ class UNQfy {
     });
     return theAlbum;
   }
+
+  getAlbumById(id) {
+    let theAlbum = null;
+    this.artists.forEach(artist => {
+      if (artist.getAlbumById(id)){
+        theAlbum = artist.getAlbumById(id);
+      }
+    });
+    return theAlbum;
+  }
+
 
   getTrackByName(name) {
     let theTrack = null;
@@ -170,9 +180,9 @@ class UNQfy {
   }
 
   createArtistByResponse(response){
-    let paramByNewArtist = {};
-    let artists = response.artists.items;
-    let artist = artists[0];
+    const paramByNewArtist = {};
+    const artists = response.artists.items;
+    const artist = artists[0];
     paramByNewArtist.name = artist.name;
     paramByNewArtist.country = 'none';
 
@@ -193,13 +203,13 @@ class UNQfy {
   }
 
   createAlbumsByResponse(artistName, response){
-    let albums = response.items;
+    const albums = response.items;
     albums.forEach(albumResponse => {
       /* Debo agregarle estos parametros:
     params.name (string)
     params.year (number)
     */
-      let params = {};
+      const params = {};
       params.name = albumResponse.name;
       const date = albumResponse.release_date;
       console.log("creando album:" + params.name);

@@ -36,28 +36,49 @@ router.route('/artists/:id').delete((req, res) => {
   console.log(req.params.id);
   const artist = unqfy.deleteArtistsById(req.params.id);
   console.log(artist);
-  res.json(artist);
+  res.json(artist); 
 });
 
 router.route('/artists').get((req, res) => {
-    const artist = unqfy.getArtistByName(req.name);
-    res.json(artist);
+  console.log(req.name);
+  //TODO FIXME no puedo obtener el valor de busqueda!!!!
+  console.log("body " + req.name);
+  console.log("body " + req.body.name);
+  console.log("body " + req.body["name"]);
+  
+  const artist = unqfy.getArtistByName(req.name);
+  res.json(artist);
 });
 
-router.route('/pong').get((req, res) => {
-  //  console.log(req);
-  //  console.log(req.query);
-  res.json({ message: 'PING!' });
+app.use('/api', router);
+router.route('/albums').post((req, res) => {
+  const album = unqfy.addAlbum(req.body);
+  res.json(album);
+});
 
+router.route('/albums/:id').get((req, res) => {
+  const album = unqfy.getAlbumById(req.params.id);
+  console.log(album);
+  res.json(album);
+});
+
+router.route('/albums/:id').delete((req, res) => {
+  console.log(req.params.id);
+  unqfy.deleteAlbumById(req.params.id);
+});
+
+router.route('/albums').get((req, res) => {
+  const artist = unqfy.getAlbumByName(req.name);
+  res.json(artist);
 });
 
 function getUNQfy(filename) {
-    let unqfy = new unqmod.UNQfy();
-    if (fs.existsSync(filename)) {
-        console.log();
-        unqfy = unqmod.UNQfy.load(filename);
-    }
-    return unqfy;
+  let unqfy = new unqmod.UNQfy();
+  if (fs.existsSync(filename)) {
+    console.log();
+    unqfy = unqmod.UNQfy.load(filename);
+  }
+  return unqfy;
 }
 
 

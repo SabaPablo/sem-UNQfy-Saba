@@ -5,8 +5,9 @@ class Album {
 
   constructor(params) {
 
-    this.name = params['name'];
-    this.year = params['year'];
+    this.id = params.id;
+    this.name = params.name;
+    this.year = params.year;
     this.trackForName = {};
     this.tracksBygenres = {};
   }

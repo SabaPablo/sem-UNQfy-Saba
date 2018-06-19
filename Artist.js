@@ -4,10 +4,10 @@ class Artist {
 
   constructor(params){
 
-    this.id = params['id'];
-    this.name = params['name'];
-    this.country = params['country'];
-    this.albumsForName = {};
+    this.id = params.id;
+    this.name = params.name;
+    this.country = params.country;
+    this.albums = [];
   }
 
   containAlbumByName(name){
@@ -22,34 +22,30 @@ class Artist {
 
   getTracks(){
     let res = [];
-    this.getAlbums().forEach(album => {
+    this.albums.forEach(album => {
       res = res.concat(album.getTracksByAlbum()); 
     });
     return res;
   }
 
-  getAlbums(){
-    let values = [];
-    Object.keys(this.albumsForName).forEach(key => {
-      values.push(this.albumsForName[key]);
+  getAlbumById(id) {
+    let album = null;
+    this.albums.forEach(anAlbum => {
+      if (anAlbum.id == id)
+        album = anAlbum;
     });
-    return values;
-
+    return album;
   }
 
-  getAlbumByName(name){
-    return this.albumsForName[name];
-  }
-
-  setAlbum(params){
+  createAlbum(params){
     const newAlbum = new albumFile.Album(params);
-    this.albumsForName[newAlbum.name] = newAlbum;
-    
+    this.albums.push(newAlbum);
+    return newAlbum;
   }
 
   getTrackByName(name){
     let track = null;
-    let albums = this.getAlbums();
+    const albums = this.getAlbums();
     albums.forEach(album => {
       track = album.getAlbumByTrackByName(name);
     });
